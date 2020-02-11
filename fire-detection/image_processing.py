@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from skimage import feature
 from PIL import Image as IMG
 from scipy.stats import entropy
+from scipy.stats import tstd
+from scipy.stats import variation
 import numpy as np
 import pandas as pd
 import operator
@@ -127,8 +129,32 @@ def get_histogram(img):
     ent_r = entropy(hist_r)
 
     return [ent_r[0], ent_g[0], ent_b[0]]
-    # print(hist_g)
-    # print(hist_r)
+
+def get_std_deviation(img):
+    path = images_path + img
+    img = cv2.imread(path)
+    hist_b = cv2.calcHist([img],[0],None,[256],[0,256])
+    hist_g = cv2.calcHist([img],[1],None,[256],[0,256])
+    hist_r = cv2.calcHist([img],[2],None,[256],[0,256])
+
+    tstd_b = tstd(hist_b)
+    tstd_g = tstd(hist_g)
+    tstd_r = tstd(hist_r)
+
+    return [tstd_r[0], tstd_g[0], tstd_b[0]]
+
+def get_variation(img):
+    path = images_path + img
+    img = cv2.imread(path)
+    hist_b = cv2.calcHist([img],[0],None,[256],[0,256])
+    hist_g = cv2.calcHist([img],[1],None,[256],[0,256])
+    hist_r = cv2.calcHist([img],[2],None,[256],[0,256])
+
+    var_b = variation(hist_b)
+    var_g = variation(hist_g)
+    var_r = variation(hist_r)
+
+    return [var_r[0], var_g[0], var_b[0]]
 
 def get_metrics(img):
     dullness = perform_color_analysis(img, 'black')
@@ -142,6 +168,8 @@ def get_metrics(img):
     dimensions = getDimensions(img)
     blurrness = get_blurrness_score(img)
     entropy = get_histogram(img)
+    deviation = get_std_deviation(img)
+    variation = get_variation(img)
 
     print(dullness)
     print(whiteness)
@@ -154,5 +182,7 @@ def get_metrics(img):
     print(dimensions)
     print(blurrness)
     print(entropy)
+    print(deviation)
+    print(variation)
 
 get_metrics('00000008.jpg')
