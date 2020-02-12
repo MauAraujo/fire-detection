@@ -1,0 +1,29 @@
+#+TITLE: report
+
+* Introduccion
+Como todos sabemos, el bosque es considerado como uno de los recursos más
+importantes e indispensables y los incendios forestales representan una
+amenaza constante para los sistemas ecológicos, la infraestructura y los
+aspectos ambientales de una comunidad, la detección de incendios forestales
+es un tema muy importante en la supresión previa proceso. Esto da lugar a la
+necesidad urgente de detectar incendios forestales lo más rápido posible.
+Este documento destaca la poderosa característica de las redes inalámbricas
+de sensores como una posible solución al desafío de la detección temprana de
+incendios forestales. El dispositivo presentado hace uso de varios sensores
+conectados y transmisión de datos inalámbrica, para cumplir con la tarea en
+cuestión. Estos datos recopilados se transmiten al pequeño satélite y el
+satélite transmite los datos a la estación terrestre donde se analizan.
+
+* Problematica
+La detección rápida y efectiva es un factor clave en la lucha contra incendios
+forestales.
+
+* Analisis
+
+* Desarrollo
+
+* Resultados
+
+* Conclusiones
+
+* Referencias
